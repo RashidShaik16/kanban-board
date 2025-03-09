@@ -1,0 +1,370 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    background-color: #ffffff;
+    font-family: "Inter", serif;
+     
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 85%;
+    min-width: 480px;
+    background-color: #1f3b79;
+    color: #ffffff;
+    height: 690px;
+    margin: auto;
+    padding: 2em;
+    border-radius: 3em; 
+    position: relative;
+}
+
+#header{
+    display: flex;
+    align-items: center;
+}
+
+.display-screen{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 1em;
+    border-radius: 2em;
+    padding: 1em;
+}
+
+.board-container{
+    position: relative;
+    width: 30%;
+    max-height: 540px;
+    background-color: #182d5a;
+    overflow: scroll;
+}
+
+.board-container::-webkit-scrollbar {
+    display: none;
+  }
+
+.stat-container{
+    width: 25%;
+    /* height: 100%; */
+    background-color: #14213d;
+}
+
+.stat-container h3{
+    margin-bottom: 1.25em;
+}
+
+.add-task-btn{
+    /* position: absolute;
+    left: 1.5em;
+    bottom: 1.5em; */
+    padding: 0.5em 1em;
+    background-color: #fca311;
+    font-weight: bold;
+    border: none;
+    cursor: pointer; 
+    transition: 0.5s ease;
+    transform-origin: left;
+}
+
+.add-task-btn:hover{
+    padding: 0.5em 2em;
+    background-color: #ebc17e;
+    border-radius: 15px;
+}
+
+.title{
+    padding-left: 0.5em;
+    margin-right: 1em;
+    font-family: "Playfair Display", serif;
+    letter-spacing: 2px;
+}
+
+
+.tasks-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    width: 100%;
+    padding: 1em;
+}
+
+.task-status-container{
+    display: flex;
+    max-width: 200px;
+    justify-content: start;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.task-status-container p{
+    font-family: "Playfair Display", serif;
+}
+
+.task-description{
+    font-size: 14px;
+}
+
+.task{
+    padding: 1em;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: #1f3b79;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.task:hover{
+    /* border: 1px solid #f8be61; */
+    box-shadow: 1px 1px 5px #ffffff;
+    padding-left: 2em;
+}
+
+
+.stat-bar-type{
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.overall-completion-container{
+    margin-top: 1.5em;
+    text-align: center;
+}
+
+.overall-completion{
+    text-align: center;
+    margin-top: 0.5em;
+    font-size: 2.5em;
+}
+
+.pending{
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #ec1010;
+}
+
+
+.working {
+    width: 35px;
+    aspect-ratio: 4;
+    background: radial-gradient(circle closest-side,#fca311 90%,#0000) 0/calc(100%/3) 100% space;
+    clip-path: inset(0 100% 0 0);
+    animation: l1 1.25s steps(4) infinite;
+  }
+  @keyframes l1 {to{clip-path: inset(0 -34% 0 0)}}
+
+
+.completed{
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #0ebb0e;
+}
+
+
+.dragging{
+    background-color: #f8be61;
+    color: #000000;
+}
+
+.status-title{
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    color: #98c6eb;
+}
+
+
+.stat-outer-bar{
+    display: flex;
+    align-items: center;
+    height: 45px;
+    border-radius: 0 0.75em 0.75em 0;
+    border: 1px solid #1f3b79;
+}
+
+.stat-bar{
+    height: 100%;
+    border-radius: 0 0.75em 0.75em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1em;
+    transition: 1s ease-in-out;
+}
+
+.pending-task-num,
+.working-task-num,
+.completed-task-num{
+    color: #ffffff;
+    font-weight: bold;
+    margin-left: 50%;
+}
+
+.total-tasks{
+    width: 100%;
+    background-color: #c6ac8f;
+    background-color: #1f3b79;
+}
+
+.pending-tasks{
+    width: 100%;
+    background-color: #ec1010;
+}
+
+.working-tasks{
+    width: 100%;
+    background-color: #fca311;
+}
+
+.completed-tasks{
+    width: 100%;
+    background-color: #0ebb0e;
+}
+
+
+.add-new-task{
+    position: fixed;
+    left: 35%;
+    top: 35%;
+    width: 350px;
+    height: 250px;
+    background-color: #14213d;
+    color: #ffffff;
+    padding: 4em 2em;
+    border-radius: 2em;
+    display: none;
+}
+
+.task-input{
+    width: 85%;
+    padding: 0.5em;
+    outline: none;
+    margin: 1em 0 1em 0
+}
+
+.task-button{
+    padding: 0.5em 1em;
+    font-weight: bold;
+    background-color: #fca311;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.task-button:hover{
+    padding: 0.5em 2em;
+    background-color: #ebc17e;
+    border-radius: 15px;
+    transform-origin: left;
+}
+
+#cancel-btn{
+    background-color: #ffffff;
+}
+
+#cancel-btn:hover{
+    background-color: #e9dfdf;
+}
+
+.disabled{  
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.enabled{
+    pointer-events: auto;
+    opacity: 1;
+}
+
+/* media queries */
+
+@media (max-width:1280px) {
+    .main-container{
+        min-width: 480px;
+        width: 50%;
+        height: auto;
+        padding: 2em 1em;
+    }
+    .display-screen{
+        flex-direction: column;
+    }
+
+    .board-container{
+        position: relative;
+        width: 100%;
+        min-height: 300px;
+        max-height: 300px;
+        background-color: #182d5a;
+        overflow: scroll;
+    }
+
+    .stat-container{
+        width: 100%;
+    }
+
+    .add-task-btn{
+        position: static;
+        bottom: 10px;
+        margin-right: 1em;
+        
+    }
+
+    #pending-tasks-container{
+        position: relative;
+    }
+
+}
+
+@media (max-width: 1020px) {
+    .add-new-task{
+        left: 32%;
+    }
+
+    .title{
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 880px) {
+    .add-new-task{
+        left: 30%;
+    }
+
+}
+
+@media (max-width: 805px) {
+    .add-new-task{
+        left: 27%;
+    }
+
+    .title{
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 640px) {
+    .add-new-task{
+        left: 20%;
+    }
+}
+
+@media (max-width: 520px) {
+    .add-new-task{
+        left: 16%;
+    }
+}
